@@ -119,30 +119,29 @@ section .sub{color:var(--muted);margin:0 0 22px}
 .jdgrid h4.ok{color:var(--good)}.jdgrid h4.no{color:var(--accent2)}
 .jdi{font-size:14px;margin:6px 0}
 .jdi small{display:block;color:var(--muted)}
-.lead-legend{display:flex;gap:18px;font-size:13px;color:var(--muted);margin-bottom:18px}
+.lead-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;gap:12px}
+.lead-legend{display:flex;gap:18px;font-size:13px;color:var(--muted)}
 .lead-legend i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px}
 .dot-c{background:var(--accent)}.dot-g{background:var(--good)}
-.ltl{position:relative;display:grid;grid-template-columns:1fr 56px 1fr;row-gap:18px}
-.ltl::before{content:"";position:absolute;left:50%;top:0;bottom:0;width:2px;background:var(--line);transform:translateX(-1px)}
-.lstep{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:16px 18px;position:relative;opacity:0;transform:translateY(14px);transition:opacity .5s,transform .5s}
-.lstep.in{opacity:1;transform:none}
-.lstep.career{grid-column:1;text-align:right}
-.lstep.growth{grid-column:3;border-color:color-mix(in srgb,var(--good) 45%,var(--line))}
-.lstep .yr{font-size:12px;font-weight:700;letter-spacing:.06em;color:var(--muted);text-transform:uppercase}
-.lstep h3{margin:2px 0 2px;font-size:17px}
-.lstep .at{color:var(--muted);font-size:14px}
-.lstep .pt{font-size:13px;color:var(--muted);margin-top:6px}
-.lstep.career::after,.lstep.growth::after{content:"";position:absolute;top:22px;width:14px;height:14px;border-radius:50%;border:3px solid var(--bg)}
-.lstep.career::after{right:-36px;background:var(--accent)}
-.lstep.growth::after{left:-36px;background:var(--good)}
-.lstep.now{background:linear-gradient(135deg,var(--panel2),var(--panel));border-color:var(--accent);box-shadow:0 0 0 1px var(--accent) inset}
-.lstep.now .yr{color:var(--accent)}
-@media(max-width:760px){
-  .ltl{grid-template-columns:28px 1fr}
-  .ltl::before{left:8px}
-  .lstep.career,.lstep.growth{grid-column:2;text-align:left}
-  .lstep.career::after,.lstep.growth::after{left:-28px;right:auto}
-}
+.lead-arrows{display:flex;gap:6px}
+.lead-arrows button{width:34px;height:34px;border-radius:50%;border:1px solid var(--line);background:var(--panel);color:var(--text);cursor:pointer;font-size:16px}
+.lead-arrows button:hover{border-color:var(--accent)}
+.htl{overflow-x:auto;scroll-snap-type:x proximity;padding-bottom:14px;scrollbar-width:thin}
+.htrack{display:flex;position:relative;width:max-content;min-width:100%;padding-top:4px}
+.htrack::before{content:"";position:absolute;left:0;right:0;top:46px;height:2px;background:var(--line)}
+.hstep{position:relative;width:250px;flex:none;padding:0 8px;scroll-snap-align:start;opacity:0;transform:translateY(12px);transition:opacity .5s,transform .5s}
+.hstep.in{opacity:1;transform:none}
+.hstep .yr{height:28px;display:flex;align-items:flex-end;font-size:12px;font-weight:700;letter-spacing:.06em;color:var(--muted);text-transform:uppercase}
+.hstep .dot{position:relative;z-index:1;width:16px;height:16px;border-radius:50%;margin:8px 0 14px 2px;border:3px solid var(--bg);outline:2px solid var(--line)}
+.hstep.career .dot{background:var(--accent)}
+.hstep.growth .dot{background:var(--good)}
+.hstep .box{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:14px 16px;min-height:150px}
+.hstep.growth .box{border-color:color-mix(in srgb,var(--good) 45%,var(--line))}
+.hstep h3{margin:0 0 3px;font-size:16px;line-height:1.25}
+.hstep .at{color:var(--muted);font-size:13px}
+.hstep .pt{font-size:13px;color:var(--muted);margin-top:6px}
+.hstep.now .box{background:linear-gradient(135deg,var(--panel2),var(--panel));border-color:var(--accent);box-shadow:0 0 0 1px var(--accent) inset}
+.hstep.now .yr{color:var(--accent)}
 footer{padding:36px 0 60px;color:var(--muted);font-size:14px;border-top:1px solid var(--line);margin-top:30px}
 @media print{nav,.cta,.filters,.exp-all{display:none}.job .body{display:block!important}body{background:#fff;color:#000}}
 </style>
@@ -151,7 +150,7 @@ footer{padding:36px 0 60px;color:var(--muted);font-size:14px;border-top:1px soli
 <nav>
   <div class="wrap">
     <strong>Devontre C. Yerby</strong>
-    <a href="#impact">Impact</a><a href="#experience">Experience</a><a href="#leadership">Leadership</a><a href="#skills">Skills</a><a href="#fit">Role fit</a><a href="#certs">Certifications</a><a href="#contact">Contact</a>
+    <a href="#leadership">Leadership</a><a href="#impact">Impact</a><a href="#experience">Experience</a><a href="#skills">Skills</a><a href="#fit">Role fit</a><a href="#certs">Certifications</a><a href="#contact">Contact</a>
     <button id="theme" aria-label="Toggle theme">Theme</button>
   </div>
 </nav>
@@ -166,6 +165,16 @@ footer{padding:36px 0 60px;color:var(--muted);font-size:14px;border-top:1px soli
     <a class="btn" href="mailto:dyerby@salesforce.com">Email</a>
   </div>
 </div></header>
+
+<section id="leadership"><div class="wrap">
+  <h2>Leadership progression</h2>
+  <p class="sub">From managing people, to owning platforms, to advising enterprises, to leading production AI. Scroll or use the arrows.</p>
+  <div class="lead-top">
+    <div class="lead-legend"><span><i class="dot-c"></i>Career scope</span><span><i class="dot-g"></i>Growth &amp; community</span></div>
+    <div class="lead-arrows"><button id="lprev" aria-label="Scroll left">&#8592;</button><button id="lnext" aria-label="Scroll right">&#8594;</button></div>
+  </div>
+  <div class="htl" id="htl"><div class="htrack" id="htrack"></div></div>
+</div></section>
 
 <section id="impact"><div class="wrap">
   <h2>Impact at a glance</h2>
@@ -191,13 +200,6 @@ footer{padding:36px 0 60px;color:var(--muted);font-size:14px;border-top:1px soli
   <div class="filters" id="filters"></div>
   <button class="btn exp-all" id="expall">Expand all</button>
   <div class="timeline" id="timeline"></div>
-</div></section>
-
-<section id="leadership"><div class="wrap">
-  <h2>Leadership progression</h2>
-  <p class="sub">From managing people, to owning platforms, to advising enterprises, to leading production AI. Career scope on the left; development and community leadership on the right.</p>
-  <div class="lead-legend"><span><i class="dot-c"></i>Career scope</span><span><i class="dot-g"></i>Growth &amp; community</span></div>
-  <div class="ltl" id="ltl"></div>
 </div></section>
 
 <section id="skills"><div class="wrap">
@@ -406,14 +408,17 @@ const lsteps=[
  {t:"growth",y:"2026",h:"Growth Lead",a:"BOLDforce DC (Salesforce Employee Resource Group)",p:"Leads member growth and engagement for the DC chapter."},
  {t:"career",y:"2026 – Present",h:"Production AI & Technical Workstream Leadership",a:"Salesforce Principal Embedded Technical Architect, global retail & consumer goods brand",p:"Leads Agentforce workstreams from readiness to production across Product, Engineering and customer teams.",now:true}
 ];
-const ltl=document.getElementById("ltl");
-lsteps.forEach(s=>{
-  const d=document.createElement("div");d.className="lstep "+s.t+(s.now?" now":"");
-  d.innerHTML=`<div class="yr">${s.y}${s.now?" &middot; current":""}</div><h3>${s.h}</h3><div class="at">${s.a}</div><div class="pt">${s.p}</div>`;
-  ltl.appendChild(d);
+const htl=document.getElementById("htl"),htrack=document.getElementById("htrack");
+const order=[0,1,2,3,4,5,6]; // chronological by start year
+lsteps.slice().sort((a,b)=>parseInt(a.y)-parseInt(b.y)||(a.now?1:0)-(b.now?1:0)).forEach(s=>{
+  const d=document.createElement("div");d.className="hstep "+s.t+(s.now?" now":"");
+  d.innerHTML=`<div class="yr">${s.y}${s.now?" &middot; current":""}</div><div class="dot"></div><div class="box"><h3>${s.h}</h3><div class="at">${s.a}</div><div class="pt">${s.p}</div></div>`;
+  htrack.appendChild(d);
 });
-const lio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");lio.unobserve(e.target)}}),{threshold:.15});
-ltl.querySelectorAll(".lstep").forEach(x=>lio.observe(x));
+const lio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");lio.unobserve(e.target)}}),{root:null,threshold:.1});
+htrack.querySelectorAll(".hstep").forEach(x=>lio.observe(x));
+document.getElementById("lprev").onclick=()=>htl.scrollBy({left:-520,behavior:"smooth"});
+document.getElementById("lnext").onclick=()=>htl.scrollBy({left:520,behavior:"smooth"});
 
 // role fit
 const roles=[
