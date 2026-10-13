@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Devontre C. Yerby | Principal Embedded Technical Architect</title>
+<meta name="description" content="Interactive resume: Principal Embedded Technical Architect, Enterprise AI delivery, Salesforce architecture and people leadership.">
+<style>
+:root{
+  --bg:#0b1220; --panel:#121b2e; --panel2:#17233b; --line:#243250;
+  --text:#e8eefc; --muted:#9fb0d0; --accent:#4cc9f0; --accent2:#7c8cff; --good:#5eead4;
+  --radius:16px;
+}
+@media (prefers-color-scheme: light){
+  :root.auto{ --bg:#f5f7fb; --panel:#fff; --panel2:#eef2fa; --line:#d9e1f0; --text:#0e1a33; --muted:#51618a; --accent:#0b7bc1; --accent2:#4f46e5; --good:#0f9d8a; }
+}
+:root.light{ --bg:#f5f7fb; --panel:#fff; --panel2:#eef2fa; --line:#d9e1f0; --text:#0e1a33; --muted:#51618a; --accent:#0b7bc1; --accent2:#4f46e5; --good:#0f9d8a; }
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+nav{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;gap:18px;height:54px;overflow-x:auto;white-space:nowrap}
+nav strong{margin-right:auto;font-size:15px}
+nav a{color:var(--muted);font-size:14px}
+nav a:hover{color:var(--text);text-decoration:none}
+nav button{background:none;border:1px solid var(--line);color:var(--muted);border-radius:8px;padding:4px 9px;cursor:pointer;font-size:13px}
+header.hero{padding:64px 0 36px}
+.hero h1{font-size:clamp(32px,6vw,56px);line-height:1.05;margin:0 0 10px;letter-spacing:-.02em}
+.hero h1 span{background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero .role{font-size:clamp(17px,2.4vw,22px);color:var(--muted);margin:0 0 20px}
+.hero p.sum{max-width:760px;font-size:17px;color:var(--text);opacity:.92}
+.cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:10px;border:1px solid var(--line);background:var(--panel);color:var(--text);font-weight:600;font-size:14px;cursor:pointer}
+.btn:hover{text-decoration:none;border-color:var(--accent)}
+.btn.primary{background:linear-gradient(90deg,var(--accent),var(--accent2));border:none;color:#04101f}
+section{padding:42px 0}
+section h2{font-size:26px;margin:0 0 6px;letter-spacing:-.01em}
+section .sub{color:var(--muted);margin:0 0 22px}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
+.tile{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:18px}
+.tile .num{font-size:36px;font-weight:800;letter-spacing:-.02em;color:var(--accent)}
+.tile .lbl{color:var(--muted);font-size:14px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:20px}
+.highlights{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px}
+.highlights h3{margin:0 0 6px;font-size:16px;color:var(--accent)}
+.highlights p{margin:0;color:var(--muted);font-size:15px}
+
+/* timeline */
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
+.chip{border:1px solid var(--line);background:var(--panel);color:var(--muted);padding:6px 12px;border-radius:999px;font-size:13px;cursor:pointer}
+.chip.on{background:var(--accent);color:#04101f;border-color:var(--accent);font-weight:700}
+.timeline{position:relative;margin-left:10px;padding-left:28px;border-left:2px solid var(--line)}
+.job{position:relative;margin-bottom:16px}
+.job::before{content:"";position:absolute;left:-37px;top:22px;width:14px;height:14px;border-radius:50%;background:var(--accent);border:3px solid var(--bg)}
+.job button.head{all:unset;box-sizing:border-box;display:block;width:100%;cursor:pointer;padding:18px 20px}
+.job .row{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.job .title{font-weight:700;font-size:18px}
+.job .org{color:var(--accent)}
+.job .yrs{color:var(--muted);font-size:14px;white-space:nowrap}
+.job .tags{margin-top:8px;display:flex;gap:6px;flex-wrap:wrap}
+.tag{font-size:12px;padding:2px 9px;border-radius:999px;background:var(--panel2);color:var(--muted);border:1px solid var(--line)}
+.job .body{display:none;padding:0 20px 18px}
+.job.open .body{display:block}
+.job .chev{float:right;color:var(--muted);transition:transform .2s}
+.job.open .chev{transform:rotate(180deg)}
+.job ul{margin:8px 0 0;padding-left:18px;color:var(--text)}
+.job li{margin:6px 0;opacity:.92}
+.job li b{color:var(--accent)}
+.job .about{color:var(--muted);font-size:14px;margin:0 0 6px}
+.job.hide{display:none}
+.exp-all{margin-bottom:12px}
+
+/* skills */
+.skills{display:grid;grid-template-columns:minmax(280px,420px) 1fr;gap:22px;align-items:center}
+@media(max-width:820px){.skills{grid-template-columns:1fr}}
+#radar{width:100%;height:auto}
+#radar text{fill:var(--muted);font-size:11px}
+#radar text.sel{fill:var(--accent);font-weight:700}
+.skilllist button{all:unset;box-sizing:border-box;display:block;width:100%;cursor:pointer;padding:10px 12px;border-radius:10px;border:1px solid transparent}
+.skilllist button:hover,.skilllist button.on{background:var(--panel);border-color:var(--line)}
+.skilllist .nm{display:flex;justify-content:space-between;font-weight:600;font-size:14px}
+.bar{height:6px;background:var(--panel2);border-radius:6px;margin-top:6px;overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--accent),var(--accent2));transition:width .9s ease}
+#skilldetail{margin-top:14px;min-height:96px}
+#skilldetail .pills{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.pill{font-size:13px;padding:3px 10px;border-radius:8px;background:var(--panel2);border:1px solid var(--line)}
+
+/* certs */
+.certs{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px}
+.cert{display:flex;gap:10px;align-items:center;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-size:14px}
+.cert .dot{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:var(--panel2);color:var(--good);font-weight:800;flex:none}
+.cert small{display:block;color:var(--muted);font-size:12px}
+.fit-tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+.fit-panel{display:grid;grid-template-columns:200px 1fr;gap:24px}
+@media(max-width:760px){.fit-panel{grid-template-columns:1fr}}
+.gauge{text-align:center}
+.gauge svg{width:160px;height:160px}
+.gauge .pct{font-size:34px;font-weight:800;fill:var(--text)}
+.gauge .cap{font-size:12px;fill:var(--muted)}
+.fit-panel h3{margin:0 0 4px;font-size:20px}
+.fit-panel .why{color:var(--muted);margin:0 0 14px}
+.fit-panel h4{margin:16px 0 8px;font-size:13px;text-transform:uppercase;letter-spacing:.06em;color:var(--accent)}
+.fitrow{margin:8px 0}
+.fitrow .top{display:flex;justify-content:space-between;font-size:14px;font-weight:600}
+.fitrow .ev{font-size:13px;color:var(--muted);margin-top:2px}
+.gap{font-size:14px;color:var(--muted);margin:4px 0;padding-left:16px;position:relative}
+.gap::before{content:"\25B8";position:absolute;left:0;color:var(--accent2)}
+.jd{margin-top:18px;display:block}
+.jd h3{margin:0 0 4px}
+.jd textarea{width:100%;background:var(--panel2);color:var(--text);border:1px solid var(--line);border-radius:10px;padding:12px;font:inherit;font-size:14px;resize:vertical}
+#jdout{margin-top:16px}
+.jdscore{display:flex;align-items:baseline;gap:10px;margin-bottom:6px}
+.jdscore b{font-size:34px;color:var(--accent)}
+.jdgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;margin-top:10px}
+.jdgrid h4{margin:0 0 8px;font-size:13px;text-transform:uppercase;letter-spacing:.06em}
+.jdgrid h4.ok{color:var(--good)}.jdgrid h4.no{color:var(--accent2)}
+.jdi{font-size:14px;margin:6px 0}
+.jdi small{display:block;color:var(--muted)}
+footer{padding:36px 0 60px;color:var(--muted);font-size:14px;border-top:1px solid var(--line);margin-top:30px}
+@media print{nav,.cta,.filters,.exp-all{display:none}.job .body{display:block!important}body{background:#fff;color:#000}}
+</style>
+</head>
+<body>
+<nav>
+  <div class="wrap">
+    <strong>Devontre C. Yerby</strong>
+    <a href="#impact">Impact</a><a href="#experience">Experience</a><a href="#skills">Skills</a><a href="#fit">Role fit</a><a href="#certs">Certifications</a><a href="#contact">Contact</a>
+    <button id="theme" aria-label="Toggle theme">Theme</button>
+  </div>
+</nav>
+
+<header class="hero"><div class="wrap">
+  <h1><span>Devontre C. Yerby</span></h1>
+  <p class="role">Principal Embedded Technical Architect &middot; Enterprise Retail &amp; Consumer Goods</p>
+  <p class="sum">Architect and people leader who takes enterprise AI from pilot to production. 20 years across sales, CRM operations and Salesforce architecture, now driving Agentforce for Service adoption, critical-incident resolution and executive technical advisory for a global retail and consumer goods brand.</p>
+  <div class="cta">
+    <a class="btn primary" href="Devontre-Yerby-Resume.pdf" download>&#8681; Download PDF resume</a>
+    <a class="btn" href="https://www.linkedin.com/in/devontreyerby" target="_blank" rel="noopener">LinkedIn</a>
+    <a class="btn" href="mailto:dyerby@salesforce.com">Email</a>
+  </div>
+</div></header>
+
+<section id="impact"><div class="wrap">
+  <h2>Impact at a glance</h2>
+  <p class="sub">Selected results from across the career.</p>
+  <div class="tiles" id="tiles"></div>
+</div></section>
+
+<section><div class="wrap">
+  <h2>Career highlights</h2>
+  <p class="sub">What I bring to a team.</p>
+  <div class="highlights">
+    <div class="card"><h3>Enterprise AI delivery &amp; technical leadership</h3><p>Drive Agentforce for Service adoption and production readiness; coordinate engineering, product and customer teams to clear deployment blockers.</p></div>
+    <div class="card"><h3>Production AI &amp; critical incident management</h3><p>Led technical coordination of a Sev-1 real-time translation incident ahead of a major launch: reproduced the defect, validated the fix, unblocked go-live for a multi-million-dollar Agentforce deployment.</p></div>
+    <div class="card"><h3>People leadership</h3><p>Managed and coached teams of 12&ndash;15, led business and data analysts, held Salesforce Employee Resource Group leadership roles, and influence without direct authority.</p></div>
+    <div class="card"><h3>Enterprise Salesforce architecture</h3><p>Scalable, secure designs across Service, Sales and Data Cloud. Ran environments for 1,100+ global users: data modeling, integrations, security, release management.</p></div>
+    <div class="card"><h3>Executive engagement</h3><p>Trusted advisor to executives and engineering leaders: technical discovery, risk communication, and translating complex AI challenges into clear recommendations.</p></div>
+  </div>
+</div></section>
+
+<section id="experience"><div class="wrap">
+  <h2>Experience timeline</h2>
+  <p class="sub">Click a role to expand. Filter by theme.</p>
+  <div class="filters" id="filters"></div>
+  <button class="btn exp-all" id="expall">Expand all</button>
+  <div class="timeline" id="timeline"></div>
+</div></section>
+
+<section id="skills"><div class="wrap">
+  <h2>Skills &amp; expertise</h2>
+  <p class="sub">Select a category on the radar or list to see details.</p>
+  <div class="skills">
+    <svg id="radar" viewBox="0 0 440 440" role="img" aria-label="Skills radar chart"></svg>
+    <div>
+      <div class="skilllist" id="skilllist"></div>
+      <div class="card" id="skilldetail"></div>
+    </div>
+  </div>
+</div></section>
+
+<section id="fit"><div class="wrap">
+  <h2>Role fit assessment</h2>
+  <p class="sub">Select a role type to see how my background maps to it, with the evidence and the honest gaps.</p>
+  <div class="fit-tabs" id="fittabs"></div>
+  <div class="fit-panel card" id="fitpanel"></div>
+
+  <div class="card jd" id="jd">
+    <h3>Check a specific job description</h3>
+    <p class="sub" style="margin-bottom:10px">Paste a job description to see which requirements match my background. Runs entirely in your browser; nothing is stored or sent.</p>
+    <textarea id="jdtext" placeholder="Paste a job description here..." rows="6"></textarea>
+    <div style="display:flex;gap:8px;margin-top:10px"><button class="btn primary" id="jdgo">Analyze fit</button><button class="btn" id="jdclear">Clear</button></div>
+    <div id="jdout"></div>
+  </div>
+</div></section>
+
+<section id="certs"><div class="wrap">
+  <h2>Certifications</h2>
+  <p class="sub">10 credentials across Salesforce and Google Cloud.</p>
+  <div class="certs" id="certgrid"></div>
+</div></section>
+
+<footer id="contact"><div class="wrap">
+  <b>Contact:</b> Fredericksburg, VA &middot; <a href="mailto:dyerby@salesforce.com">dyerby@salesforce.com</a> &middot; <a href="https://www.linkedin.com/in/devontreyerby" target="_blank" rel="noopener">linkedin.com/in/devontreyerby</a><br>
+  Customer details are generalized. Full resume available on request.
+</div></footer>
+
+<script>
+const metrics=[
+ {n:20,s:"+",l:"Years across sales, CRM ops and architecture"},
+ {n:3000,s:"+",l:"Users in an enterprise Agentforce for Service rollout"},
+ {n:1100,s:"+",l:"Global Salesforce users supported"},
+ {n:60,s:"%",l:"Productivity gain from CRM modernization"},
+ {n:40,s:"%",l:"Fewer data-entry errors via integrations"},
+ {n:15,s:"",l:"Largest team managed directly (12–15)"},
+ {n:3,s:"",l:"Countries supported in AI user acceptance testing (UK, DE, FR)"},
+ {n:10,s:"",l:"Salesforce and Google Cloud certifications"}
+];
+const jobs=[
+ {title:"Principal Embedded Technical Architect",org:"Salesforce",yrs:"2026 – Present",loc:"Virginia, Remote",
+  tags:["AI","Architecture","Leadership"],
+  about:"Embedded architect for a global retail and consumer goods customer; enterprise AI delivery and technical leadership.",
+  bullets:[
+   ["Enterprise AI delivery","Drive Agentforce for Service adoption, production readiness and technical execution across enterprise customer service initiatives."],
+   ["Sev-1 escalation","Led coordination and resolution of a real-time translation defect days before a major launch: reproduced the issue, gathered diagnostics, coordinated engineering and validated fixes in the customer sandbox to unblock go-live."],
+   ["Executive risk management","Translated critical incidents into business risk assessments for a strategic customer with a multi-million-dollar Agentforce for Service deployment supporting 3,000+ users."],
+   ["Production enablement","Drove workstreams for Conversation Catch-Up, Service Replies, post-conversation summaries and real-time translation through staging and production readiness."],
+   ["AI consumption governance","Detected an anomalous spike of hundreds of thousands of Agentforce credits in 24 hours from a custom agent action; initiated investigation and configuration review to strengthen oversight."],
+   ["Observability & analytics","Enabled Agentforce observability and Tableau Next / Data 360 reporting for visibility into AI adoption, agent performance and usage."],
+   ["Cross-functional leadership","Led workstreams across Product, Engineering, Support, cloud partners and customer stakeholders to prioritize issues and clear blockers."],
+   ["Global enablement","Supported Agentforce user acceptance testing across the UK, Germany and France."],
+   ["Product advocacy","Partnered with Product Management to validate feature behavior, surface limitations and elevate customer feedback."]
+  ]},
+ {title:"Lead Solution Engineer / Service Cloud Specialist",org:"Salesforce",yrs:"2021 – 2026",loc:"Virginia, Remote",
+  tags:["Architecture","Pre-sales","Leadership"],
+  about:"Financial Services and Retail & Consumer Goods; Service Cloud, Field Service, Employee Service, IT Service, AWS Connect.",
+  bullets:[
+   ["Discovery","Led business requirements discovery and built flowcharts that optimized end-user processes."],
+   ["B2B sales cycles","Reduced average sales cycle time using data-driven approaches; answered RFP/RFI technical questions and built proofs of concept."],
+   ["Reusable assets","Designed custom objects, automations and workflows adopted as a gold standard across engineering teams."],
+   ["Product influence","Contributed to product focus groups and strengthened partnerships with Salesforce system integrators."],
+   ["Enablement & coaching","Captured lessons learned in technical help docs and coached junior team members."],
+   ["Industries","Manufacturing, Automotive, Energy & Utilities, Retail & Consumer Goods."],
+   ["Executive communication","Presented technical and business insights to executive leadership for technical and non-technical audiences."]
+  ]},
+ {title:"Senior Salesforce Administrator",org:"Bloomberg Industry Group",yrs:"2020 – 2021",loc:"Arlington, VA",
+  tags:["Admin","Architecture"],
+  about:"Managed and optimized Salesforce for global users.",
+  bullets:[
+   ["Scale","Managed multiple Salesforce instances for 1,100+ users worldwide (Sales, Service, CPQ, Shield, Knowledge, Communities; Jira, Confluence, DocuSign, Oracle CPQ)."],
+   ["Release management","Deployed solutions sandbox to production under tight deadlines."],
+   ["Security","Built custom data security using event monitoring and field audit trails."],
+   ["Service efficiency","Standardized help desk responses to reduce average resolution times."],
+   ["Recognition","Consistently ranked as a top-performing administrator."]
+  ]},
+ {title:"CRM Manager / Sales Operations Manager",org:"Navy Mutual Aid Association",yrs:"2014 – 2020",loc:"Arlington, VA",
+  tags:["Leadership","Admin","Operations"],
+  about:"Nonprofit life insurance and annuities provider for military families.",
+  bullets:[
+   ["Team leadership","Managed data and business analysts supporting sales operations, reporting, lead generation and pipeline management."],
+   ["Modernization","Led enterprise CRM modernization contributing to a 60% productivity improvement; led the transition to Lightning."],
+   ["Integrations","Drove cross-functional adoption and third-party integrations, reducing data-entry errors by 40%."],
+   ["Security & data","Managed record types, sharing rules, profiles, permission sets and roles; established deduplication criteria."],
+   ["Incentives","Designed a sales incentive structure in a custom object with a scorecard and real-time departmental budget tracking."],
+   ["Reporting","Built KPI reports and dashboards; monitored adoption and delivered user training."]
+  ]},
+ {title:"Sales Manager",org:"GEICO Insurance Company",yrs:"2006 – 2013",loc:"Multiple locations",
+  tags:["Leadership","Operations"],
+  about:"One of the largest U.S. auto insurers.",
+  bullets:[
+   ["People management","Directly managed, coached and evaluated teams of 12–15 associates against performance, quality and production targets."],
+   ["Analytics","Applied performance analytics, structured coaching and operational reporting to drive accountability."],
+   ["Communication","Liaised between associates and upper management on new directives, policies and products."]
+  ]}
+];
+const skills=[
+ {n:"Enterprise AI & Agentforce",v:95,d:["Agentforce for Service","Generative & agentic AI","Agent lifecycle management","Prompt engineering","AI adoption & consumption","Production readiness","Troubleshooting","AI observability"]},
+ {n:"Technical Leadership",v:92,d:["Cross-functional workstreams","Sev-1 incident coordination","Escalation management","Deployment readiness","Stakeholder alignment","Mentoring"]},
+ {n:"Salesforce Architecture",v:93,d:["Service Cloud","Sales Cloud","Data Cloud / Data 360","Field Service","Experience Cloud","CPQ","Shield","Flow","Apex (working)","LWC (design)"]},
+ {n:"Data, Integration & Governance",v:85,d:["Enterprise data modeling","API-led integrations","Data security","Sharing & visibility","AI consumption monitoring","Platform governance","Adoption analytics"]},
+ {n:"People Leadership",v:90,d:["People management","Performance coaching","Team development","Collaboration","ERG leadership"]},
+ {n:"Customer Strategy & Adoption",v:92,d:["Executive advisory","Strategic accounts","Technical discovery","Workshops","UAT","Consumption optimization","Business value realization"]},
+ {n:"Cloud & Analytics",v:78,d:["AWS Connect","GCP integration exposure","Tableau Next","Agentforce observability","Data 360"]}
+];
+const certs=[
+ ["Salesforce Administrator","Salesforce"],["Data Cloud Consultant","Salesforce"],["Service Cloud Consultant","Salesforce"],
+ ["Field Service Consultant","Salesforce"],["Business Analyst","Salesforce"],["Certified Associate","Salesforce"],
+ ["Certified Sales Representative","Salesforce"],["AI Associate","Salesforce"],["AI Specialist","Salesforce"],
+ ["Generative AI Leader","Google Cloud"]
+];
+
+// theme
+const root=document.documentElement;root.classList.add("auto");
+document.getElementById("theme").onclick=()=>{
+  const light=root.classList.contains("light")||(root.classList.contains("auto")&&matchMedia("(prefers-color-scheme: light)").matches);
+  root.classList.remove("auto");root.classList.toggle("light",!light);
+};
+
+// tiles with count-up
+const tiles=document.getElementById("tiles");
+metrics.forEach(m=>{
+  const d=document.createElement("div");d.className="tile";
+  d.innerHTML=`<div class="num" data-n="${m.n}" data-s="${m.s}">0${m.s}</div><div class="lbl">${m.l}</div>`;
+  tiles.appendChild(d);
+});
+const io=new IntersectionObserver(es=>es.forEach(e=>{
+  if(!e.isIntersecting)return;io.unobserve(e.target);
+  const el=e.target,n=+el.dataset.n,s=el.dataset.s,t0=performance.now();
+  (function f(t){const p=Math.min((t-t0)/1100,1);el.textContent=Math.round(n*(1-Math.pow(1-p,3))).toLocaleString()+s;if(p<1)requestAnimationFrame(f)})(t0);
+}),{threshold:.4});
+document.querySelectorAll(".num").forEach(n=>io.observe(n));
+
+// timeline
+const tl=document.getElementById("timeline"),fl=document.getElementById("filters");
+jobs.forEach((j,i)=>{
+  const el=document.createElement("div");el.className="job card";el.dataset.tags=j.tags.join("|");
+  el.innerHTML=`<button class="head" aria-expanded="false"><span class="chev">&#9662;</span>
+    <div class="row"><div><div class="title">${j.title}</div><div class="org">${j.org} <span style="color:var(--muted)">&middot; ${j.loc}</span></div></div><div class="yrs">${j.yrs}</div></div>
+    <div class="tags">${j.tags.map(t=>`<span class="tag">${t}</span>`).join("")}</div></button>
+    <div class="body"><p class="about">${j.about}</p><ul>${j.bullets.map(b=>`<li><b>${b[0]}:</b> ${b[1]}</li>`).join("")}</ul></div>`;
+  el.querySelector(".head").onclick=()=>{const o=el.classList.toggle("open");el.querySelector(".head").setAttribute("aria-expanded",o)};
+  tl.appendChild(el);
+  if(i===0)el.classList.add("open");
+});
+const allTags=["All",...new Set(jobs.flatMap(j=>j.tags))];
+allTags.forEach((t,i)=>{
+  const c=document.createElement("button");c.className="chip"+(i?"":" on");c.textContent=t;
+  c.onclick=()=>{fl.querySelectorAll(".chip").forEach(x=>x.classList.remove("on"));c.classList.add("on");
+    tl.querySelectorAll(".job").forEach(j=>j.classList.toggle("hide",t!=="All"&&!j.dataset.tags.split("|").includes(t)))};
+  fl.appendChild(c);
+});
+let allOpen=false;
+document.getElementById("expall").onclick=e=>{allOpen=!allOpen;tl.querySelectorAll(".job").forEach(j=>j.classList.toggle("open",allOpen));e.target.textContent=allOpen?"Collapse all":"Expand all"};
+
+// radar
+const svg=document.getElementById("radar"),NS="http://www.w3.org/2000/svg",cx=220,cy=220,R=130,N=skills.length;
+const pt=(i,r)=>{const a=-Math.PI/2+i*2*Math.PI/N;return [cx+r*Math.cos(a),cy+r*Math.sin(a)]};
+const mk=(t,a,p=svg)=>{const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);p.appendChild(e);return e};
+[.25,.5,.75,1].forEach(f=>mk("polygon",{points:skills.map((_,i)=>pt(i,R*f).join(",")).join(" "),fill:"none",stroke:"var(--line)"}));
+skills.forEach((s,i)=>{const [x,y]=pt(i,R);mk("line",{x1:cx,y1:cy,x2:x,y2:y,stroke:"var(--line)"})});
+const poly=mk("polygon",{points:skills.map(()=>`${cx},${cy}`).join(" "),fill:"var(--accent)","fill-opacity":.25,stroke:"var(--accent)","stroke-width":2});
+const dots=skills.map((s,i)=>{const d=mk("circle",{cx,cy,r:5,fill:"var(--accent)",style:"cursor:pointer"});d.onclick=()=>pick(i);return d});
+const labels=skills.map((s,i)=>{
+  const [x,y]=pt(i,R+22);const t=mk("text",{x,y,"text-anchor":x<cx-5?"end":x>cx+5?"start":"middle","dominant-baseline":"middle",style:"cursor:pointer"});
+  const words=s.n.split(" ");const mid=Math.ceil(words.length/2);
+  [words.slice(0,mid).join(" "),words.slice(mid).join(" ")].filter(Boolean).forEach((ln,k,arr)=>{const ts=mk("tspan",{x,dy:k?13:(arr.length>1?-6:0)},t);ts.textContent=ln});
+  t.onclick=()=>pick(i);return t});
+const list=document.getElementById("skilllist"),det=document.getElementById("skilldetail");
+const btns=skills.map((s,i)=>{const b=document.createElement("button");
+  b.innerHTML=`<div class="nm"><span>${s.n}</span><span>${s.v}</span></div><div class="bar"><i></i></div>`;b.onclick=()=>pick(i);list.appendChild(b);return b});
+function pick(i){
+  btns.forEach((b,k)=>b.classList.toggle("on",k===i));labels.forEach((l,k)=>l.classList.toggle("sel",k===i));
+  det.innerHTML=`<b>${skills[i].n}</b><div class="pills">${skills[i].d.map(x=>`<span class="pill">${x}</span>`).join("")}</div>`;
+}
+function animateSkills(){
+  const t0=performance.now();
+  (function f(t){const p=Math.min((t-t0)/1000,1),e=1-Math.pow(1-p,3);
+    poly.setAttribute("points",skills.map((s,i)=>pt(i,R*(s.v/100)*e).join(",")).join(" "));
+    dots.forEach((d,i)=>{const [x,y]=pt(i,R*(skills[i].v/100)*e);d.setAttribute("cx",x);d.setAttribute("cy",y)});
+    btns.forEach((b,i)=>b.querySelector("i").style.width=skills[i].v*e+"%");
+    if(p<1)requestAnimationFrame(f)})(t0);
+}
+pick(0);
+new IntersectionObserver((es,o)=>{if(es[0].isIntersecting){animateSkills();o.disconnect()}},{threshold:.3}).observe(svg);
+
+// role fit
+const roles=[
+ {n:"Technical Architect (Enterprise AI / Agentforce)",fit:92,
+  why:"Closest match: hands-on production AI delivery, incident leadership and architecture for a strategic enterprise account.",
+  m:[["Agentforce & generative AI delivery",95,"Production readiness for Conversation Catch-Up, Service Replies, summaries and real-time translation."],
+     ["Critical incident leadership",92,"Led a Sev-1 translation defect to resolution days before launch."],
+     ["AI governance & observability",88,"Caught a credit-consumption anomaly; enabled observability and Tableau Next / Data 360 reporting."],
+     ["Salesforce platform architecture",93,"Service, Sales, Data Cloud, Field Service, CPQ, Shield; 1,100+ user environments."]],
+  g:["Apex is working knowledge; best paired with a dedicated developer for heavy custom code.","Deep multi-cloud (non-Salesforce) architecture is exposure-level, not primary."]},
+ {n:"Solutions / Sales Engineer (Principal)",fit:90,
+  why:"Five years as a Lead Solution Engineer plus enterprise AI credibility with executives.",
+  m:[["Technical discovery & demos / POCs",92,"Led discovery, built proofs of concept, answered RFP/RFI technical questions."],
+     ["Executive communication",90,"Presents to executive leadership; translates technical risk into business terms."],
+     ["Industry breadth",85,"Retail & CG, Financial Services, Manufacturing, Automotive, Energy & Utilities."],
+     ["Cycle-time & asset creation",84,"Reduced sales cycle time; built reusable assets adopted as a gold standard."]],
+  g:["Recent focus is post-sale delivery, so pipeline-generation talk tracks would be refreshed quickly."]},
+ {n:"Technical Account / Customer Success Architect",fit:88,
+  why:"Embedded with a strategic customer, owning adoption, risk and cross-team escalation.",
+  m:[["Adoption & consumption management",90,"Drove production adoption, UAT across UK, Germany and France, and consumption oversight."],
+     ["Escalation management",92,"Coordinated Product, Engineering, Support and partners to clear blockers."],
+     ["Trusted advisor",88,"Risk assessments for a multi-million-dollar, 3,000+ user deployment."],
+     ["Product feedback loop",80,"Validated feature behavior and elevated customer feedback to Product Management."]],
+  g:["Commercial renewal and quota ownership is not a primary part of recent roles."]},
+ {n:"Technical Program / Delivery Manager (AI)",fit:84,
+  why:"Runs cross-functional workstreams to production with clear risk communication.",
+  m:[["Cross-functional workstream leadership",90,"Led technical workstreams across Salesforce teams, partners and customer stakeholders."],
+     ["Release & deployment readiness",86,"Sandbox-to-production release management; staging and production readiness for AI features."],
+     ["Stakeholder & risk reporting",85,"Translates incidents into business risk for executives."],
+     ["Process & tooling",78,"Jira-based change tracking and process improvement from CRM operations roles."]],
+  g:["Formal PMP / program-management credentials are not listed."]},
+ {n:"Engineering / Technical Manager (People Leader)",fit:80,
+  why:"Long track record leading teams, with technical depth to coach architects and engineers.",
+  m:[["Managing & coaching teams",90,"Managed teams of 12–15 at GEICO; led data and business analysts at Navy Mutual."],
+     ["Performance & analytics",85,"Structured coaching, operational reporting and accountability."],
+     ["Mentoring technical talent",82,"Coached junior solution engineers and admins; ERG leadership."],
+     ["Technical credibility",88,"Hands-on architect with 10 certifications."]],
+  g:["Most recent direct-report management predates the current architect role; recent leadership is influence-based."]},
+ {n:"Salesforce Platform / CRM Operations Leader",fit:86,
+  why:"Built and ran Salesforce at scale as admin, CRM manager and sales-ops leader.",
+  m:[["Platform administration & governance",92,"1,100+ global users; security with sharing rules, permission sets, Shield, event monitoring."],
+     ["CRM modernization",88,"60% productivity gain; Lightning transition; 40% fewer data-entry errors."],
+     ["Reporting & adoption analytics",85,"KPI dashboards, adoption monitoring, user training."],
+     ["Integrations",84,"Jira, Confluence, DocuSign, Oracle CPQ, AWS Connect."]],
+  g:["Hands-on admin work is now less central than AI delivery and architecture."]}
+];
+const ft=document.getElementById("fittabs"),fp=document.getElementById("fitpanel");
+function showRole(i){
+  ft.querySelectorAll(".chip").forEach((c,k)=>c.classList.toggle("on",k===i));
+  const r=roles[i],C=2*Math.PI*62;
+  fp.innerHTML=`<div class="gauge"><svg viewBox="0 0 160 160"><circle cx="80" cy="80" r="62" fill="none" stroke="var(--panel2)" stroke-width="12"/>
+    <circle id="arc" cx="80" cy="80" r="62" fill="none" stroke="var(--accent)" stroke-width="12" stroke-linecap="round" stroke-dasharray="${C}" stroke-dashoffset="${C}" transform="rotate(-90 80 80)" style="transition:stroke-dashoffset .8s ease"/>
+    <text class="pct" x="80" y="86" text-anchor="middle">${r.fit}%</text><text class="cap" x="80" y="106" text-anchor="middle">overall fit</text></svg></div>
+    <div><h3>${r.n}</h3><p class="why">${r.why}</p>
+    <h4>Where I match</h4>${r.m.map(x=>`<div class="fitrow"><div class="top"><span>${x[0]}</span><span>${x[1]}</span></div><div class="bar"><i style="width:${x[1]}%"></i></div><div class="ev">${x[2]}</div></div>`).join("")}
+    <h4>Honest gaps</h4>${r.g.map(x=>`<div class="gap">${x}</div>`).join("")}</div>`;
+  fp.querySelectorAll(".bar i").forEach(b=>{const w=b.style.width;b.style.width="0";requestAnimationFrame(()=>requestAnimationFrame(()=>b.style.width=w))});
+  requestAnimationFrame(()=>requestAnimationFrame(()=>{const a=document.getElementById("arc");if(a)a.style.strokeDashoffset=C*(1-r.fit/100)}));
+}
+roles.forEach((r,i)=>{const c=document.createElement("button");c.className="chip";c.textContent=r.n.split(" (")[0];c.onclick=()=>showRole(i);ft.appendChild(c)});
+showRole(0);
+
+// job description matcher
+const jdTerms=[
+ {l:"Agentforce / generative AI",k:["agentforce","generative ai","genai","gen ai","agentic","llm","prompt","einstein","ai agent","copilot"],e:"Production Agentforce for Service delivery, prompt engineering, agent lifecycle, AI observability.",w:3},
+ {l:"Solution architecture",k:["solution architect","architecture","architect","solution design","technical design"],e:"Principal Technical Architect; scalable, secure enterprise Salesforce designs.",w:3},
+ {l:"Salesforce platform",k:["salesforce","sfdc","crm","lightning"],e:"10+ years across admin, CRM management, solution engineering and architecture.",w:3},
+ {l:"Service Cloud / Field Service",k:["service cloud","field service","contact center","case management","customer service"],e:"Service Cloud specialist; certified Service Cloud and Field Service Consultant.",w:2},
+ {l:"Sales Cloud / CPQ",k:["sales cloud","cpq","revenue cloud","quote"],e:"Sales Cloud and CPQ at Bloomberg; Oracle CPQ integration.",w:2},
+ {l:"Data Cloud / Data 360",k:["data cloud","data 360","cdp","customer data platform","data model"],e:"Certified Data Cloud Consultant; Data 360 reporting and enterprise data modeling.",w:2},
+ {l:"Analytics / dashboards",k:["tableau","analytics","dashboard","reporting","kpi","bi "],e:"Tableau Next, KPI dashboards, adoption analytics.",w:1},
+ {l:"Integrations / APIs",k:["integration","api","middleware","rest","soap","jira","docusign"],e:"API-led integrations; Jira, Confluence, DocuSign, Oracle CPQ, AWS Connect.",w:2},
+ {l:"Security & governance",k:["security","governance","compliance","sharing","permission","shield","audit"],e:"Shield, event monitoring, field audit trails, sharing rules, platform governance.",w:2},
+ {l:"Incident / escalation management",k:["incident","escalation","sev-1","sev1","troubleshoot","root cause","production support"],e:"Led a Sev-1 defect resolution before a major launch; reproduced, diagnosed, validated fix.",w:2},
+ {l:"Executive / stakeholder engagement",k:["executive","stakeholder","c-level","trusted advisor","advisor","influence","communicat","presentation"],e:"Executive risk assessments, trusted-advisor role, regular executive presentations.",w:3},
+ {l:"Technical discovery / pre-sales",k:["discovery","pre-sales","presales","proof of concept","poc","rfp","rfi","demo","solution engineer"],e:"Lead Solution Engineer 2021-2026: discovery, POCs, RFP/RFI responses.",w:2},
+ {l:"Cross-functional leadership",k:["cross-functional","cross functional","collaborat","partner with","product management","engineering teams"],e:"Led workstreams across Product, Engineering, Support, partners and customers.",w:2},
+ {l:"People management / coaching",k:["people manager","manage a team","managing","mentor","coach","direct reports","leadership","lead a team"],e:"Managed teams of 12-15; led analysts; coached junior engineers; ERG leadership.",w:2},
+ {l:"Deployment / release management",k:["release management","deployment","ci/cd","sandbox","go-live","production readiness","change management"],e:"Sandbox-to-production releases; production readiness for Agentforce features.",w:2},
+ {l:"Adoption & value realization",k:["adoption","enablement","consumption","value realization","user acceptance","uat","customer success","onboarding"],e:"Drove adoption, UAT across UK/DE/FR, consumption oversight.",w:2},
+ {l:"Flow / low-code",k:["flow","low-code","low code","declarative","automation","workflow"],e:"Salesforce Flow, custom automations adopted as a gold standard.",w:1},
+ {l:"Apex / LWC (working level)",k:["apex","lwc","lightning web","soql","visualforce"],e:"Apex working knowledge; LWC solution design.",w:1,partial:true},
+ {l:"Cloud telephony / AWS Connect",k:["aws connect","telephony","cti","amazon connect","gcp","google cloud"],e:"AWS Connect telephony; GCP integration exposure; Google Cloud GenAI Leader certified.",w:1},
+ {l:"Retail & consumer goods",k:["retail","consumer goods","cpg","ecommerce","e-commerce"],e:"Embedded with a global retail & consumer goods brand; industry specialist.",w:1},
+ {l:"Salesforce certifications",k:["certified","certification","certifications"],e:"10 certifications including Data Cloud, Service Cloud, Field Service, AI Specialist.",w:1},
+ /* terms NOT on the resume, used to flag honest gaps */
+ {l:"Java / Python / JavaScript development",k:["java ","python","javascript","typescript","node.js","c#",".net","golang"],gap:true},
+ {l:"MuleSoft",k:["mulesoft","anypoint"],gap:true},
+ {l:"Kubernetes / DevOps / Terraform",k:["kubernetes","docker","terraform","devops","jenkins"],gap:true},
+ {l:"Snowflake / Databricks / data engineering",k:["snowflake","databricks","spark","etl","dbt","data engineer"],gap:true},
+ {l:"Marketing Cloud / Pardot",k:["marketing cloud","pardot","account engagement","journey builder"],gap:true},
+ {l:"Industries Clouds (Health, FSC, Comms)",k:["health cloud","financial services cloud","fsc","communications cloud","industries cloud","omnistudio","vlocity"],gap:true},
+ {l:"Formal PMP / Agile certifications",k:["pmp","safe agile","scrum master","csm"],gap:true},
+ {l:"Quota carrying / direct sales",k:["quota","carry a number","closing deals","new logo"],gap:true}
+];
+const jdi=document.getElementById("jdtext"),jdo=document.getElementById("jdout");
+document.getElementById("jdclear").onclick=()=>{jdi.value="";jdo.innerHTML=""};
+document.getElementById("jdgo").onclick=()=>{
+  const t=" "+jdi.value.toLowerCase().replace(/\s+/g," ")+" ";
+  if(t.trim().length<30){jdo.innerHTML='<p class="sub">Paste a longer job description to analyze.</p>';return}
+  const hit=jdTerms.filter(x=>x.k.some(k=>t.includes(k)));
+  const ok=hit.filter(x=>!x.gap),gaps=hit.filter(x=>x.gap);
+  const wOk=ok.reduce((a,x)=>a+x.w*(x.partial?.6:1),0),wAll=ok.reduce((a,x)=>a+x.w,0)+gaps.length*2;
+  if(!hit.length){jdo.innerHTML='<p class="sub">No recognizable requirements found. Try pasting the responsibilities and qualifications sections.</p>';return}
+  const pct=Math.round(100*wOk/wAll);
+  const verdict=pct>=80?"Strong match":pct>=60?"Good match":pct>=40?"Partial match":"Limited match";
+  jdo.innerHTML=`<div class="jdscore"><b>${pct}%</b><span>${verdict} &middot; ${ok.length} requirement areas matched${gaps.length?`, ${gaps.length} gap${gaps.length>1?"s":""}`:""}</span></div>
+   <p class="sub" style="margin:0">Keyword-based estimate from the text you pasted, not a full evaluation.</p>
+   <div class="jdgrid"><div><h4 class="ok">Matches</h4>${ok.length?ok.map(x=>`<div class="jdi">&#10003; <b>${x.l}</b>${x.partial?" (working level)":""}<small>${x.e}</small></div>`).join(""):"<p class='sub'>None detected.</p>"}</div>
+   <div><h4 class="no">Gaps to discuss</h4>${gaps.length?gaps.map(x=>`<div class="jdi">&#9656; <b>${x.l}</b><small>Not listed on my resume.</small></div>`).join(""):"<p class='sub'>No obvious gaps detected.</p>"}</div></div>`;
+};
+
+// certs
+document.getElementById("certgrid").innerHTML=certs.map(c=>`<div class="cert"><div class="dot">&#10003;</div><div>${c[0]}<small>${c[1]}</small></div></div>`).join("");
+</script>
+</body>
+</html>
